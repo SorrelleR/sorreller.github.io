@@ -46,8 +46,8 @@ window.addEventListener('scroll', scrollActive)
 const sr = ScrollReveal({
     origin: 'top',
     distance: '60px',
-    duration: 2000,
-    delay: 100,
+    duration: 1000,
+    delay: 50,
     reset: false
 });
 
@@ -59,3 +59,15 @@ sr.reveal('.experience__card',{interval: 150, origin: 'bottom'});
 sr.reveal('.project__card',{interval: 150, origin: 'bottom'});
 sr.reveal('.contact__info',{origin: 'left'});
 sr.reveal('.contact__form',{origin: 'right'}); 
+
+/*==================== HORIZONTAL SCROLL FOR PROJECT IMAGES ====================*/
+const projectGalleries = document.querySelectorAll('.project__img');
+projectGalleries.forEach((gallery) => {
+    // Enable mouse wheel vertical-to-horizontal scroll
+    gallery.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            gallery.scrollLeft += e.deltaY;
+        }
+    }, { passive: false });
+});

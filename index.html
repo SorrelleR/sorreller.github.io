@@ -39,7 +39,7 @@
 
         <main class="l-main">
             <!--===== HOME =====-->
-            <section class="home bd-grid" id="home">
+            <section class="home bd-grid apple-hero" id="home">
                 <div class="home__data">
                     <h1 class="home__title">Hi, I'm <span class="home__title-color">Sorrelle</span><br>Bioengineering @ UCLA<br><span class="home__subtitle">Wearables • Bionics • AI</span></h1>
                     <div class="home__meta"><span class="badge">Graduating March 2026</span></div>
@@ -53,7 +53,15 @@
                 </div>
 
                 <div class="home__img">
-                    <img src="assets/img/1728366808144.jpeg" alt="Sorrelle Robertson" class="home__photo">
+                    <svg class="home__blob" viewBox="0 0 479 467" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <mask id="mask0" mask-type="alpha">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                        </mask>
+                        <g mask="url(#mask0)">
+                            <path d="M9.19024 145.964C34.0253 76.5814 114.865 54.7299 184.111 29.4823C245.804 6.98884 311.86 -14.9503 370.735 14.143C431.207 44.026 467.948 107.508 477.191 174.311C485.897 237.229 454.931 294.377 416.506 344.954C373.74 401.245 326.068 462.801 255.442 466.189C179.416 469.835 111.552 422.137 65.1576 361.805C17.4835 299.81 -17.1617 219.583 9.19024 145.964Z"/>
+                             <image class="home__blob-img" x="60" y="0" width="620" height="467" preserveAspectRatio="xMidYMid slice" href="assets/img/1728366808144.jpeg"/>
+                        </g>
+                    </svg>
                 </div>
             </section>
 
@@ -69,7 +77,7 @@
                     <div>
                         <h2 class="about__subtitle">Bioengineering Student & Innovator</h2>
                         <p class="about__text">I'm a fourth-year Bioengineering student at UCLA graduating in March 2026, with a passion for wearable technologies and cutting-edge bionics research. My diverse skill set spans from 3D modeling and electronics to software development and machine learning. I thrive at the intersection of hardware and software, creating innovative solutions that push the boundaries of biomedical engineering.</p>
-                        <p class="about__text">From developing AI-driven CAD automation apps to researching autonomous rehabilitation systems, I'm committed to advancing technology that improves lives. When I'm not in the lab, you'll find me surfing, rowing, or exploring the outdoors.</p>           
+                        <p class="about__text">From developing AI-driven CAD automation apps to researching autonomous rehabilitation systems, I'm committed to advancing technology that improves lives. When I'm not in the lab, you'll find me surfing, painting, or exploring the outdoors.</p>           
                     </div>                                   
                 </div>
             </section>
@@ -79,11 +87,16 @@
                 <h2 class="section-title">Education</h2>
 
                 <div class="education__container bd-grid">
-                    <div class="education__item">
-                        <h3 class="education__degree">B.S. in Bioengineering</h3>
-                        <span class="education__school">University of California, Los Angeles</span>
-                        <span class="education__meta">Graduating March 2026</span>
-                        <p class="education__focus">Focus: Wearable systems, bionics, machine learning, sensors, and rehabilitation technology.</p>
+                    <div class="education__item education__row">
+                        <div class="education__brand">
+                            <img src="assets/img/UCLA_Samueli_Engineering_block-1.png" alt="UCLA Samueli School of Engineering" class="education__logo">
+                        </div>
+                        <div class="education__details">
+                            <h3 class="education__degree">B.S. in Bioengineering</h3>
+                            <span class="education__school">University of California, Los Angeles</span>
+                            <span class="education__meta">Graduating March 2026</span>
+                            <p class="education__focus">Focus: Wearable systems, bionics, machine learning, sensors, and rehabilitation technology.</p>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -167,7 +180,7 @@
                     </div>
                     
                     <div>              
-                        <img src="assets/img/tss.png" alt="Engineering workspace" class="skills__img">
+                        
                     </div>
                 </div>
             </section>
@@ -254,28 +267,11 @@
                 <h2 class="section-title">Featured Projects</h2>
 
                 <div class="projects__container bd-grid">
-                    <div class="project__card">
-                        <div class="project__img">
-                            <img src="assets/img/hand.jpeg" alt="Bionic Hand Project">
-                            <div class="project__overlay">
-                                <h3>Wearable Bionic Hand</h3>
-                            </div>
-                        </div>
-                        <div class="project__content">
-                            <h3 class="project__title">Wearable Bionic Hand</h3>
-                            <p class="project__description">Collaborated with a team of 4 to develop a bionic hand using SolidWorks and 3D printing, integrated with Arduino and flex sensors for precise control across a range of tasks.</p>
-                            <div class="project__tags">
-                                <span class="tag">SolidWorks</span>
-                                <span class="tag">Arduino</span>
-                                <span class="tag">3D Printing</span>
-                                <span class="tag">Wearables</span>
-                            </div>
-                        </div>
-                    </div>
+                   
 
                     <div class="project__card">
                         <div class="project__img">
-                            <img src="assets/img/work2.jpg" alt="CRISPR Project">
+                            <img src="assets/img/addgene-plasmid-140002-sequence-275516-map.png" alt="CRISPR Project">
                             <div class="project__overlay">
                                 <h3>CRISPR Gene Therapy</h3>
                             </div>
@@ -311,7 +307,7 @@
 
                     <div class="project__card">
                         <div class="project__img">
-                            <img src="assets/img/work4.jpg" alt="Rehabilitation System">
+                            <img src="assets/img/Screenshot 2025-11-04 at 2.08.04 PM.png" alt="Rehabilitation System">
                             <div class="project__overlay">
                                 <h3>VR Rehabilitation</h3>
                             </div>
@@ -323,6 +319,24 @@
                                 <span class="tag">Unity</span>
                                 <span class="tag">ML</span>
                                 <span class="tag">VR</span>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="project__card">
+                        <div class="project__img">
+                            <img src="assets/img/hand.jpeg" alt="Bionic Hand Project">
+                            <div class="project__overlay">
+                                <h3>Wearable Bionic Hand</h3>
+                            </div>
+                        </div>
+                        <div class="project__content">
+                            <h3 class="project__title">Wearable Bionic Hand</h3>
+                            <p class="project__description">Collaborated with a team of 4 to develop a bionic hand using SolidWorks and 3D printing, integrated with Arduino and flex sensors for precise control across a range of tasks.</p>
+                            <div class="project__tags">
+                                <span class="tag">SolidWorks</span>
+                                <span class="tag">Arduino</span>
+                                <span class="tag">3D Printing</span>
+                                <span class="tag">Wearables</span>
                             </div>
                         </div>
                     </div>

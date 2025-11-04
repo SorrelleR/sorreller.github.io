@@ -5,9 +5,10 @@
   --header-height: 3rem;
   --font-semi: 600;
   /* Apple-like grayscale + blue */
-  --first-color: #0a84ff;
-  --first-color-light: #5eb1ff;
-  --first-color-dark: #0066cc;
+  --first-color: #2774AE; /* UCLA Blue */
+  --first-color-blob: #f4eee5;
+  --first-color-light: #5CA9DD;
+  --first-color-dark: #1F5E8C;
   --second-color: #111827;
   --text-color: #111827;
   --text-color-light: #6b7280;
@@ -16,6 +17,8 @@
   --tag-bg: #f5f5f7;
   --tag-text: #111827;
   --border-color: #e5e7eb;
+  --surface-alt: #fbfbfd;
+  --tint-blue-weak: rgba(10, 132, 255, 0.04);
   /* Typography */
   --body-font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", "Poppins", sans-serif;
   --big-font-size: 2.25rem;
@@ -94,8 +97,9 @@ img {
 }
 
 /*===== LAYOUT =====*/
+.section--alt { background: transparent; }
 .bd-grid {
-  max-width: 1024px;
+  max-width: 1200px;
   display: grid;
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
@@ -182,17 +186,23 @@ img {
   row-gap: 5rem;
   padding: 4rem 0 5rem;
 }
+.apple-hero {
+  min-height: 80vh;
+  background: linear-gradient(180deg,#f8fafc 0%, #ffffff 100%);
+}
 .home.bd-grid {
-  grid-template-columns: 1.2fr .8fr;
+  grid-template-columns: 1fr;
   align-items: center;
-  column-gap: 2rem;
+  column-gap: 1.25rem;
 }
 .home__data {
   align-self: center;
 }
 .home__title {
   font-size: var(--big-font-size);
-  margin-bottom: var(--mb-5);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.75rem;
 }
 .home__title-color {
   color: var(--first-color);
@@ -221,12 +231,17 @@ img {
 .home__social-icon:hover {
   color: var(--first-color);
 }
-.home__img {
+.apple-hero .home__img {
   position: relative;
   right: auto;
   bottom: auto;
-  width: 280px;
-  margin-left: auto;
+  width: 340px;
+  margin-left: 1rem;
+}
+.apple-hero .home__photo {
+  width: 100%;
+  height: auto;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
 }
 .home__photo {
   width: 100%;
@@ -237,7 +252,7 @@ img {
   box-shadow: 0 10px 30px rgba(0,0,0,0.06);
 }
 .home__blob {
-  fill: var(--first-color);
+  fill: var(--first-color-blob);
 }
 .home__blob-img {
   width: 360px;
@@ -396,9 +411,11 @@ img {
 
 /* ===== HOME SUBTITLE =====*/
 .home__subtitle {
-  font-size: 1.2rem;
-  font-weight: 400;
-  margin-top: 0.5rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--text-color-light);
+  letter-spacing: 0.01em;
+  margin-top: 0.25rem;
 }
 
 /* ===== ABOUT TEXT =====*/
@@ -445,47 +462,49 @@ img {
 
 /* ===== EXPERIENCE =====*/
 .experience__container {
-  row-gap: 2rem;
+  row-gap: 1.5rem;
   grid-template-columns: 1fr;
 }
 .experience__card {
-  background-color: var(--card-bg);
-  padding: 2rem 1.5rem;
-  border-radius: 1rem;
-  border: 1px solid var(--border-color);
-  transition: background-color 0.2s;
+  background: transparent;
+  padding: 1rem 0 1.5rem;
+  border-radius: 0;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  column-gap: 1rem;
 }
-.experience__card:hover {
-  background-color: #f9fafb;
-}
+.experience__card:last-child { border-bottom: none; }
 .experience__icon {
   font-size: 2.5rem;
   color: var(--first-color);
-  margin-bottom: var(--mb-2);
+  margin-bottom: 0;
+  align-self: start;
 }
 .experience__logo {
-  height: 44px;
+  height: 60px;
   width: auto;
   display: block;
   margin-bottom: 0;
 }
 .experience__title {
-  font-size: 1.1rem;
-  font-weight: var(--font-semi);
+  font-size: 1.05rem;
+  font-weight: 600;
   color: var(--text-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .experience__role {
   font-size: var(--smaller-font-size);
   color: var(--text-color-light);
   display: block;
-  margin-bottom: var(--mb-2);
+  margin-bottom: 0.5rem;
 }
 .experience__description {
   font-size: var(--normal-font-size);
   color: var(--text-color-light);
   line-height: 1.7;
-  margin-bottom: var(--mb-2);
+  margin-bottom: 0.75rem;
 }
 .experience__tags {
   display: flex;
@@ -506,17 +525,23 @@ img {
 }
 .project__img {
   position: relative;
-  overflow: hidden;
   height: 220px;
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
 }
 .project__img img {
+  flex: 0 0 100%;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  scroll-snap-align: start;
   transition: transform 0.5s;
 }
-.project__card:hover .project__img img {
-  transform: scale(1.1);
+.project__card:hover .project__img img:first-child {
+  transform: scale(1.03);
 }
 .project__overlay { display: none; }
 .project__content {
@@ -567,6 +592,8 @@ img {
   border-radius: .75rem;
   padding: 1.25rem;
 }
+.education__row { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 1rem; }
+.education__logo { height: 40px; width: auto; display: block; }
 .education__degree { font-size: 1.05rem; font-weight: 600; color: var(--second-color); }
 .education__school { display: block; color: var(--text-color-light); margin-top: .25rem; }
 .education__meta { display: inline-block; margin-top: .5rem; font-weight: 600; color: var(--first-color); }
@@ -650,10 +677,7 @@ img {
     margin-bottom: 0;
     margin-right: var(--mb-4);
   }
-  .home__img {
-    width: 300px;
-    bottom: 25%;
-  }
+  .apple-hero .home__img { width: 420px; margin-left: 1.25rem; }
   .about__container {
     grid-template-columns: repeat(2, 1fr);
     align-items: center;
@@ -722,10 +746,11 @@ img {
   .home {
     padding: 8rem 0 2rem;
   }
-  .home__img {
-    width: 400px;
-    bottom: 10%;
-  }
+  .home.bd-grid { grid-template-columns: 1.1fr .9fr; align-items: center; column-gap: 1.5rem; }
+  .home__data { grid-column: 1; grid-row: 1; }
+  .apple-hero .home__img { grid-column: 2; grid-row: 1; justify-self: end; }
+  .home__social { grid-column: 1; grid-row: 2; align-self: start; }
+  .apple-hero .home__img { width: 560px; }
   .about__container {
     padding-top: 2rem;
   }
@@ -755,9 +780,7 @@ img {
   .home {
     padding: 10rem 0 2rem;
   }
-  .home__img {
-    width: 450px;
-  }
+  .apple-hero .home__img { width: 640px; }
   .experience__container {
     grid-template-columns: repeat(2, 1fr);
   }
