@@ -463,6 +463,12 @@ img {
   color: var(--first-color);
   margin-bottom: var(--mb-2);
 }
+.experience__logo {
+  height: 44px;
+  width: auto;
+  display: block;
+  margin-bottom: 0;
+}
 .experience__title {
   font-size: 1.1rem;
   font-weight: var(--font-semi);
