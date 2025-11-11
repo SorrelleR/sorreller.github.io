@@ -282,26 +282,24 @@ img {
   display: inline-block;
   padding: .45rem .9rem;
   border-radius: 9999px;
-  background: linear-gradient(135deg, rgba(39,116,174,.14), rgba(92,169,221,.10));
-  border: 1px solid rgba(39,116,174,.25);
+  background: #f6f7f9;
+  border: 1px solid var(--border-color);
   color: var(--second-color);
   font-size: .85rem;
   font-weight: 600;
   white-space: nowrap;
-  backdrop-filter: saturate(120%) blur(1px);
-  transition: background .2s, color .2s, border-color .2s, transform .1s;
+  transition: background-color .2s, color .2s, border-color .2s, transform .1s;
 }
 .bubble:hover, .bubble:focus {
-  background: linear-gradient(135deg, var(--first-color), var(--first-color-dark));
-  color: #fff;
-  border-color: var(--first-color);
+  background: rgba(39,116,174,.10);
+  border-color: rgba(39,116,174,.35);
+  color: var(--second-color);
   transform: translateY(-1px);
 }
-/* Bubble color variants */
-.bubble--bionic { background: linear-gradient(135deg, rgba(245,158,11,.18), rgba(251,191,36,.10)); border-color: rgba(245,158,11,.35); }
-.bubble--crispr { background: linear-gradient(135deg, rgba(99,102,241,.18), rgba(167,139,250,.10)); border-color: rgba(99,102,241,.35); }
-.bubble--sensors { background: linear-gradient(135deg, rgba(16,185,129,.18), rgba(110,231,183,.10)); border-color: rgba(16,185,129,.35); }
-.bubble--vr { background: linear-gradient(135deg, rgba(236,72,153,.18), rgba(244,114,182,.10)); border-color: rgba(236,72,153,.35); }
+.bubble--bionic, .bubble--crispr, .bubble--sensors, .bubble--vr {
+  background: #f6f7f9;
+  border-color: var(--border-color);
+}
 .button {
   display: inline-block;
   background-color: var(--first-color);
@@ -469,27 +467,11 @@ img {
 }
 
 /* ===== SECTION GRADIENT ACCENTS =====*/
-.section--sky {
-  background-image: linear-gradient(180deg, var(--sky-1), var(--sky-2) 30%, transparent 70%);
-}
-.section--mint {
-  background-image: linear-gradient(180deg, var(--mint-1), var(--mint-2) 30%, transparent 70%);
-}
-.section--rose {
-  background-image: linear-gradient(180deg, var(--rose-1), var(--rose-2) 30%, transparent 70%);
-}
+.section--sky,
+.section--mint,
+.section--rose,
 .section--violet {
-  background-image: linear-gradient(180deg, var(--violet-1), var(--violet-2) 30%, transparent 70%);
-}
-.section--sky::before,
-.section--mint::before,
-.section--rose::before,
-.section--violet::before {
-  content: "";
-  display: block;
-  height: 2px;
-  margin-bottom: 1rem;
-  background-image: linear-gradient(90deg, transparent, rgba(0,0,0,.15), transparent);
+  background: transparent;
 }
 
 /* ===== SKILLS CATEGORIES =====*/
@@ -531,23 +513,45 @@ img {
 .experience__container {
   row-gap: 1.5rem;
   grid-template-columns: 1fr;
+  position: relative;
+}
+.experience__container::before {
+  content: "";
+  position: absolute;
+  left: 28px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border-color);
 }
 .experience__card {
-  background: transparent;
-  padding: 1rem 0 1.5rem;
-  border-radius: 0;
-  border: none;
-  border-bottom: 1px solid var(--border-color);
+  background: var(--card-bg);
+  padding: 1rem 1.25rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border-color);
   display: grid;
   grid-template-columns: 56px 1fr;
   column-gap: 1rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.04);
 }
-.experience__card:last-child { border-bottom: none; }
+.experience__card:hover {
+  box-shadow: 0 10px 32px rgba(0,0,0,0.06);
+}
 .experience__icon {
-  font-size: 2.5rem;
+  font-size: 1.4rem;
   color: var(--first-color);
-  margin-bottom: 0;
   align-self: start;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  position: relative;
+  z-index: 1;
 }
 .experience__logo {
   height: 60px;
