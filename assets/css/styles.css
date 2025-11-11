@@ -229,7 +229,8 @@ img {
 }
 .home__social {
   display: flex;
-  flex-direction: column;
+  flex-direction: column; 
+  padding-top: 1rem;
 }
 .home__social-icon {
   width: max-content;
