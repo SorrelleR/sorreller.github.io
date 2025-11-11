@@ -71,3 +71,25 @@ projectGalleries.forEach((gallery) => {
         }
     }, { passive: false });
 });
+
+/*==================== EXPERIENCE CAROUSEL + PROGRESS ====================*/
+const experienceCarousel = document.querySelector('.experience__carousel');
+const experienceProgress = document.querySelector('.experience__progress-bar');
+
+if (experienceCarousel && experienceProgress) {
+    const updateProgress = () => {
+        const maxScroll = experienceCarousel.scrollWidth - experienceCarousel.clientWidth;
+        const ratio = maxScroll > 0 ? (experienceCarousel.scrollLeft / maxScroll) : 0;
+        experienceProgress.style.width = `${Math.min(Math.max(ratio, 0), 1) * 100}%`;
+    };
+    experienceCarousel.addEventListener('scroll', updateProgress, { passive: true });
+    window.addEventListener('resize', updateProgress);
+    updateProgress();
+    // Wheel translate vertical to horizontal
+    experienceCarousel.addEventListener('wheel', (e) => {
+        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            experienceCarousel.scrollLeft += e.deltaY;
+        }
+    }, { passive: false });
+}
